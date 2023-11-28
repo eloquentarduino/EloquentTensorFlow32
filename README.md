@@ -21,6 +21,8 @@ void setup() {
 
   tf.setNumInputs(1);
   tf.setNumOutputs(1);
+  // add required ops
+  tf.resolver.AddFullyConnected();
 
   // init model
   while (!tf.begin(your_tf_model).isOk()) 
@@ -29,9 +31,9 @@ void setup() {
 
 void loop() {
   // fill your input vector
-  float x[1] = {0};
+  float input[1] = {0};
   
-  while (!tf.predict(x).isOk())
+  while (!tf.predict(input).isOk())
     Serial.println(tf.exception.toString());
 
   // one output

@@ -2,7 +2,7 @@
 #define ELOQUENT_TENSORFLOW_32
 
 #include <TensorFlowLite_ESP32.h>
-#include "tensorflow/lite/micro/all_ops_resolver.h"
+#include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/system_setup.h"
@@ -26,8 +26,7 @@ namespace Eloquent {
             public:
                 const Model *model;
                 ErrorReporter *reporter;
-                //MicroMutableOpResolver<numOps> resolver;
-                tflite::AllOpsResolver resolver;
+                MicroMutableOpResolver<numOps> resolver;
                 MicroInterpreter *interpreter;
                 TfLiteTensor *input;
                 TfLiteTensor *output;
