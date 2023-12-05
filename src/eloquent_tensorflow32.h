@@ -109,7 +109,8 @@ namespace Eloquent {
                 /**
                  * 
                  */
-                Exception& predict(float *x) {
+                template<typename T>
+                Exception& predict(T *x) {
                     // quantize
                     float inputScale = input->params.scale;
                     float inputOffset = input->params.zero_point;

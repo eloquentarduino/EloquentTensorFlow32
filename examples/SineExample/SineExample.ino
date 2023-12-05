@@ -41,7 +41,7 @@ void loop() {
     float x = random(1000) / 1000 * 3.14;
     float input[1] = {x};
 
-    while (!tf.predict(input, output).isOk())
+    while (!tf.predict(input).isOk())
         Serial.println(tf.exception.toString());
 
     Serial.printf(
