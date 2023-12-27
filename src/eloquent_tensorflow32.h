@@ -1,7 +1,6 @@
 #ifndef ELOQUENT_TENSORFLOW_32
 #define ELOQUENT_TENSORFLOW_32
 
-#include <TensorFlowLite_ESP32.h>
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"

@@ -38,16 +38,17 @@ void setup() {
 
 
 void loop() {
-    float x = random(1000) / 1000 * 3.14;
+    float x = (millis() % 1000) / 1000.0f * 3.14;
     float input[1] = {x};
 
     while (!tf.predict(input).isOk())
         Serial.println(tf.exception.toString());
 
-    Serial.printf(
-        "sin(%.2f) = %.2f. Predicted %.2f\n", 
-        x, 
-        sin(x),
-        tf.result(0)
-    );
+    Serial.print("x = ");
+    Serial.print(x);
+    Serial.print(", sin(x) = ");
+    Serial.print(sin(x));
+    Serial.print(", y = ");
+    Serial.println(tf.result());
+    delay(100);
 }
